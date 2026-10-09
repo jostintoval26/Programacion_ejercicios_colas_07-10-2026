@@ -11,14 +11,14 @@ TIEMPO_ESPECIALISTA = 5.12
 
 doctores = {
     "General": {
-        "MedicoGen_DrCruz": queue.Queue(maxsize=10),
-        "MedicoGen_DREspinoza": queue.Queue(maxsize=10),
-        "MedicoGen_DrMeza": queue.Queue(maxsize=10),
+        "Medicina General - Dr. Cruz": queue.Queue(maxsize=10),
+        "Medicina General - Dr. Espinoza": queue.Queue(maxsize=10),
+        "Medicina General - Dr. Meza": queue.Queue(maxsize=10),
     },
     "Especialista": {
-        "Ortopedia_DrPrado": queue.Queue(maxsize=4),
-        "Ginecologia_DrPerez": queue.Queue(maxsize=4),
-        "Internista_DrManzanares": queue.Queue(maxsize=4),
+        "Ortopedia - Dr. Prado": queue.Queue(maxsize=4),
+        "Ginecologia - Dr. Perez": queue.Queue(maxsize=4),
+        "Internista - Dr. Manzanares": queue.Queue(maxsize=4),
     },
 }
 
@@ -42,7 +42,7 @@ for paciente_id in range(1, MAX_PACIENTES + 1):
         # Simulacion de cuando se atiende, se sale de cola y se suma a atendidos
         paciente = salas[mejor_dr].get()
         atendidos[mejor_dr] += 1
-        print(f"  {mejor_dr} atendio a {paciente}")
+        print(f"  {mejor_dr} atendio a {paciente}  (En la fila: {salas[mejor_dr].qsize()})")
     else:
         rechazados += 1
 
